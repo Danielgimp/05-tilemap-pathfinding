@@ -1,5 +1,5 @@
 # week 8
-## by Rinat Ozkesen and Daniel Gimpelman
+## By Rinat Ozkesen and Daniel Gimpelman
 
 A project with step-by-step scenes illustrating how to construct a 2D scene using tilemaps,
 and how to do path-finding using the BFS algorithm.
@@ -15,6 +15,11 @@ https://github.com/GameDev2020/week_8/blob/main/Assets/Scripts/0-bfs/TilemapGrap
 https://github.com/GameDev2020/week_8/blob/main/Assets/Scripts/0-bfs/TileMapDijkstra.cs
 * Target Mover:
 https://github.com/GameDev2020/week_8/blob/main/Assets/Scripts/TargetMover_Dijkstra.cs
+
+## q4  
+* Changed the following script to spwn different Tilemaps according to a random Double value:  
+https://github.com/Danielgimp/05-tilemap-pathfinding/blob/master/Assets/Scripts/4-generation/TilemapCaveGenerator.cs  
+
 
 ## q5
 * keyboardmover_q5 - add objects for overriding.
