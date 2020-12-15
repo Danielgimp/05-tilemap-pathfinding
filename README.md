@@ -25,7 +25,13 @@ https://github.com/Danielgimp/05-tilemap-pathfinding/blob/master/Assets/Scripts/
 * keyboardmover_q5 - add objects for overriding.
 https://github.com/GameDev2020/week_8/blob/main/Assets/Scripts/Keyboardmover_q5.cs
 * definition mountain's tiles - implements keyboardmover_q5
-https://github.com/GameDev2020/week_8/blob/main/Assets/Scripts/Keyboardmoverbytiles_q5.cs
+https://github.com/GameDev2020/week_8/blob/main/Assets/Scripts/Keyboardmoverbytiles_q5.cs  
+
+## itch.io links for the games:  
+* Q1,Q5:  
+https://gamedev2020.itch.io/week8  
+* Q4:  
+https://gamedev2020.itch.io/week8-q4  
 
 ## Credits
 
