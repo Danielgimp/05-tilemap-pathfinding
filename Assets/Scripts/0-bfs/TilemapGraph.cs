@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 /**
  * A graph that represents a tilemap, using only the allowed tiles.
@@ -29,5 +30,10 @@ public class TilemapGraph: IGraph<Vector3Int> {
             if (allowedTiles.Contains(neighborTile))
                 yield return neighborPos;
         }
+    }
+
+    public static implicit operator TilemapGraph(TileMapDijkstra v)
+    {
+        throw new NotImplementedException();
     }
 }

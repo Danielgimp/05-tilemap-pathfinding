@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
+using System;
 
 
 /**
@@ -11,6 +12,8 @@ using System.Collections;
  */
 
 public class TilemapCaveGenerator: MonoBehaviour {
+
+    private System.Random random1;
     [SerializeField] Tilemap tilemap = null;
 
     [Tooltip("The tile that represents a wall (an impassable block)")]
@@ -18,6 +21,12 @@ public class TilemapCaveGenerator: MonoBehaviour {
 
     [Tooltip("The tile that represents a floor (a passable block)")]
     [SerializeField] TileBase floorTile = null;
+
+    [Tooltip("The tile that represents a Forest Tile")]
+    [SerializeField] TileBase forestTile = null;
+
+    [Tooltip("The tile that represents a fast movement tile")]
+    [SerializeField] TileBase seaTile = null;
 
     [Tooltip("The percent of walls in the initial random map")]
     [Range(0, 1)]
@@ -36,7 +45,7 @@ public class TilemapCaveGenerator: MonoBehaviour {
 
     void Start()  {
         //To get the same random numbers each time we run the script
-        Random.InitState(100);
+        UnityEngine.Random.InitState(100);
 
         caveGenerator = new CaveGenerator(randomFillPercent, gridSize);
         caveGenerator.RandomizeMap();
@@ -68,11 +77,36 @@ public class TilemapCaveGenerator: MonoBehaviour {
     //Generate a black or white texture depending on if the pixel is cave or wall
     //Display the texture on a plane
     private void GenerateAndDisplayTexture(int[,] data) {
+        
         for (int y = 0; y < gridSize; y++) {
             for (int x = 0; x < gridSize; x++) {
                 var position = new Vector3Int(x, y, 0);
-                var tile = data[x, y] == 1 ? wallTile: floorTile;
-                tilemap.SetTile(position, tile);
+                var tile1= floorTile;
+                random1 = new System.Random();
+                if (data[x, y] == 1)
+                {
+                    tile1 = wallTile;
+                }
+                else
+                {
+                    
+                    if (random1.NextDouble() < 0.25)
+                    {
+                         tile1 = forestTile;
+                    }
+
+                    if(random1.NextDouble() > 0.25 && random1.NextDouble() < 0.75)
+                    {
+                         tile1 = floorTile;
+                    }
+
+                    if (random1.NextDouble() > 0.75)
+                    {
+                         tile1 = seaTile;
+                    }
+
+                }                
+                tilemap.SetTile(position, tile1);
             }
         }
     }
